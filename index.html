@@ -8,6 +8,12 @@
     <link href="css/scrolling-nav.css" rel="stylesheet">
     <link href="css/bootstrap-slider.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:900,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://www.fontspace.com/nimavisual/moonhouse?text=' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+
     <link href="css/style.css" rel="stylesheet">
 
 
@@ -52,8 +58,10 @@
 <section id="intro" class="intro">
     <div class="section-head">
         <div class = "container">
-            <h3 align="left"></h3>
-            <br>
+            <div class="container web-title">
+                <h1 id="webpage-title" align="center"><span class="span-color1">H</span>earth<span class="span-color2">S</span>cience</h1>
+                <h1 id="webpage-subtitle" align="center">How to Win <span class="span-color1">HearthStone</span> Using <span class="span-color2">Data Science</span></h1>
+            </div>
         </div>
     </div>
 </section>
@@ -61,7 +69,7 @@
 <section id="video">
     <div class="section-head">
         <div class = "container">
-            <h3 align="left">Video</h3>
+            <h2 align="left">Video</h2>
             <iframe width="800" height="500" src="https://www.youtube.com/embed/ISpJ_VvB8PQ" frameborder="0" allowfullscreen></iframe>
             <br>
         </div>
@@ -70,7 +78,7 @@
 <section id="story">
     <div class="section-head">
         <div class = "container">
-            <h3 id="title-1" align="left">Overview and Motivation</h3>
+            <h2 id="title-1" align="left">Overview and Motivation</h2>
             <br>
             <h6>Some of our team members are loyal fans of the popular free online card game, <b>Hearthstone: Heroes of Warcraft</b>, which was released worldwide by Blizzard on 2014 with more than 40 million registered Hearthstone accounts by November 2015. The main element of the game Hearthstone are cards, which consist of a list of features including cost, attack (number of damages can be made to the opponent per turn),health (number of damages that can bear before being destroyed) and other special abilities.
             </h6>
@@ -98,7 +106,7 @@
 <section id="question">
     <div class="section-head">
         <div class = "container">
-            <h3 align="left">Initial Questions</h3>
+            <h2 align="left">Initial Questions</h2>
             <br>
             <h6>
                 <ol>
@@ -140,7 +148,7 @@
 <section id="terminology">
         <div class="section-head">
             <div class = "container">
-                <h3 id="title-2" align="left">Terminology of HearthStone</h3>
+                <h2 id="title-2" align="left">Terminology of HearthStone</h2>
                 <br>
                 <h6>
                     <ul>
@@ -182,7 +190,7 @@
 <section id="analysis">
     <div class="section-head">
         <div class = "container">
-            <h3 align="left">Data</h3>
+            <h2 align="left">Data</h2>
             <br>
             <h4 align="left">Basic Card information</h4>
             <h6>We collected card data from Hearthstone’s API: <a href="http://hearthstoneapi.com">http://hearthstoneapi.com</a>, Card. It contains thorough card information of: card name, card set (Basic, Classic, Blackrock Mountain, Goblins vs Gnomes, Naxxramas, Promotion, The Grand Tournament, The League of Explorers), card type (minions, spells, weapons), player class (Priest, Hunter, Warlock, Shaman, Warrior, Mage, Paladin, Druid, Rogue, All), card description (text), mechanics of minions (Battlecry, Taunt, Normal, HealTarget, Charge, Aura, AdjacentBuff, Spell Damage, Freeze, Enrage, Divine Shield, Stealth, Overload, Deathrattle, Windfury, Combo, Poisonous, Inspire), attack, health, and cost of cards. We have collected the json file using Python and transfer it into RData (and csv files) using R.
@@ -193,7 +201,7 @@
             </h6>
         </div>
         <div class = "container">
-            <h3 align="left">Exploratory Analysis</h3>
+            <h2 align="left">Exploratory Analysis</h2>
             <br>
             <h6> First, we want to see how costs of cards distributed across the card databases. A great portion of cards are 2 to 4 cost, which is a right skewed distribution. From the above plots, we have found similar patterns in attack and health as in the cost distribution. These similar patterns give us a hint of using linear model to predict cost by attack and health.</h6>
         <div class = "container-fluid">
@@ -227,7 +235,7 @@
 <section id="results">
     <div class="section-head">
         <div class = "container">
-            <h3 align="left">Analysis</h3>
+            <h2 align="left">Analysis</h2>
             <br>
             <h4 align="left">Card Value Analysis</h4>
             <h6>All the analysis on card values were only done on minions (cards that have attack and health). Recalling our plots from in <b>Exploratory Analysis</b>, as well as plotting another histogram for the sum of health and attack (attplusheal), we can found similar distributions between the cost and the sum of attach and health, where the distributions are right-skewed.</h6>
