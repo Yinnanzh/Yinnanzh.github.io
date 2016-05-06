@@ -56,8 +56,12 @@
     <div class="section-head">
         <div class = "container">
             <div class="container web-title">
-                <h1 id="webpage-title" align="center"><span class="span-color1">H</span>earth<span class="span-color2">S</span>cience</h1>
-                <h1 id="webpage-subtitle" align="center">How to Win <span class="span-color1">HearthStone</span> Using <span class="span-color2">Data Science</span></h1>
+                <div class="animatedParent">
+                    <h1 id="webpage-title" align="center" class="animated bounceInDown"><span class="span-color1">H</span>earth<span class="span-color2">S</span>cience</h1>
+                </div>
+                <div class="animatedParent">
+                    <h1 id="webpage-subtitle" align="center" class="animated bounceInUp">How to Win <span class="span-color1">HearthStone</span> Using <span class="span-color2">Data Science</span></h1>
+                </div>
             </div>
         </div>
     </div>
@@ -67,78 +71,87 @@
 <section id="story">
     <div class="section-head">
         <div class = "container">
-            <h2 id="title-1" align="left" class="animated bounceIn">Overview and Motivation</h2>
-            <br>
-            <h6>Some of our team members are loyal fans of the popular free online card game, <b>Hearthstone: Heroes of Warcraft</b>, which was released worldwide by Blizzard on 2014 with more than 40 million registered Hearthstone accounts by November 2015. The main element of the game Hearthstone are cards, which consist of a list of features including cost, attack (number of damages can be made to the opponent per turn),health (number of damages that can bear before being destroyed) and other special abilities.
-            </h6>
-            <br>
-            <h6>Before every game starts, each of the two players will choose 1 hero mode among the 9 and then select 30 different cards over 700 cards to build his/her own deck depending on the mode. Each turn, the player will draw one card randomly from the 30 cards and one more mana crystal (money). The player can choose the cards to use among all those in hand that cost up to the mana crystals he/she has by that turn. The game ends when one player is attacked to death (lose all 30 units of health) or he/she concedes, and the other player will win.
-            </h6>
-            <br>
-            <h6>
-                Therefore, the initial building of the 30 cards, as well as the choices of cards to use during the game will directly influence the results of the game. This motivated us:
+            <div class="animatedParent">
+                <h2 id="title-1" align="left" class="animated fadeInLeft">Overview and Motivation</h2>
                 <br>
-                <br>
-                <div class = "container">
-                    <ul>
-                        <li class = "objective"><b>To evaluate the value of all cards.</b></li>
-                        <li class = "objective"><b>To explore the correlation between cards.</b></li>
-                        <li class = "objective"><b>To decide the set of core cards and number of drawing cards.</b></li>
-                        <li class = "objective"><b>To explore the number of different costs of card in a deck with simulations.</b></li>
-                        <li class = "objective"><b>To build a deck with optimal combined strength.</b></li>
-                    </ul>
+                <div>
+                    <h6>Some of our team members are loyal fans of the popular free online card game, <b>Hearthstone: Heroes of Warcraft</b>, which was released worldwide by Blizzard on 2014 with more than 40 million registered Hearthstone accounts by November 2015. The main element of the game Hearthstone are cards, which consist of a list of features including cost, attack (number of damages can be made to the opponent per turn),health (number of damages that can bear before being destroyed) and other special abilities.
+                    </h6>
+                    <br>
+                    <h6>Before every game starts, each of the two players will choose 1 hero mode among the 9 and then select 30 different cards over 700 cards to build his/her own deck depending on the mode. Each turn, the player will draw one card randomly from the 30 cards and one more mana crystal (money). The player can choose the cards to use among all those in hand that cost up to the mana crystals he/she has by that turn. The game ends when one player is attacked to death (lose all 30 units of health) or he/she concedes, and the other player will win.
+                    </h6>
+                    <br>
+                    <h6>
+                        Therefore, the initial building of the 30 cards, as well as the choices of cards to use during the game will directly influence the results of the game. This motivated us:
+                        <br>
+                        <br>
+                        <div class = "container">
+                            <ul>
+                                <li class = "objective"><b>To evaluate the value of all cards.</b></li>
+                                <li class = "objective"><b>To explore the correlation between cards.</b></li>
+                                <li class = "objective"><b>To decide the set of core cards and number of drawing cards.</b></li>
+                                <li class = "objective"><b>To explore the number of different costs of card in a deck with simulations.</b></li>
+                                <li class = "objective"><b>To build a deck with optimal combined strength.</b></li>
+                            </ul>
+                        </div>
+                    </h6>
                 </div>
-            </h6>
+            </div>
         </div>
     </div>
 </section>
 <section id="question">
     <div class="section-head">
         <div class = "container">
-            <h2 align="left">Initial Questions</h2>
-            <br>
-            <h6>
-                <ol>
-                    <div class = "container">
-                        <li class = "objective"><b>What are the “true” values of individual cards? Are there any properties the Blizard company used to assign values (cost) of these cards? Is there any card undervalued/overvalued by the company?</b></li>
-                        <br>
-                        In this stage, we aimed to estimate the value of each card independently, only considering the basic information from the card itself, i.e. attack, health, special ability.
-                        <br>
-                        <br>
-                        <li class = "objective"><b>What is the balance between low cost cards and high cost cards?</b></li>
-                        <br>
-                        The card a player can use is restricted by the number of mana he/she has for that turn, starting from 1 at the beginning and will reach to a maximum of 10 since the 10th turn. If there is no card with cost less than or equal to the number of mana in that turn, the player cannot use any card. Note that without this consideration, we may choose all 30 cards to be with very high cost – however, we are not able to use them in the first several turns. If the opponent do have small cards, we may be attacked to death before we could ever use any card. We aimed to simulate the possibilities of playing a card in the first 5 turns.
-                        <br>
-                        <br>
-                        <li class = "objective"><b>Are there any “core” combination of cards?</b></li>
-                        <br>
-                        We aimed to estimate the correlation between cards in certain decks of a specific hero and hope to create card combinations based on principal component analyses. In deciding the number of core cards, we also want to explore the number of drawing cards we need, in order to be able to get the core cards in the random drawing during the game.
-                        <br>
-                        <br>
-                        <li class = "objective"><b>Are we able to build a powerful deck (30 cards) for some heros?</b></li>
-                        <br>
-                        With all our analysis in previous stages, we aimed to build potentially powerful decks for certain heros.
-                        <br>
-                        <br>
-                        <div align="center"><img src = "img/flowchart.png" height="650"></div>
-                        <br>
-                        <br>
-                        <li class = "objective"><b>Test the deck we built!</b></li>
-                        <br>
-                        We can test our model by simulating games (or playing real games) using the deck and strategy we developed, and calculate its percentage of winning.
-                        <br>
-                        <br>
-                    </div>
-                </ol>
-            </h6>
+            <div class="animatedParent">
+                <h2 align="left" class="animated fadeInRight">Initial Questions</h2>
+                <br>
+                <h6>
+                    <ol>
+                        <div class = "container">
+                            <li class = "objective"><b>What are the “true” values of individual cards? Are there any properties the Blizard company used to assign values (cost) of these cards? Is there any card undervalued/overvalued by the company?</b></li>
+                            <br>
+                            In this stage, we aimed to estimate the value of each card independently, only considering the basic information from the card itself, i.e. attack, health, special ability.
+                            <br>
+                            <br>
+                            <li class = "objective"><b>What is the balance between low cost cards and high cost cards?</b></li>
+                            <br>
+                            The card a player can use is restricted by the number of mana he/she has for that turn, starting from 1 at the beginning and will reach to a maximum of 10 since the 10th turn. If there is no card with cost less than or equal to the number of mana in that turn, the player cannot use any card. Note that without this consideration, we may choose all 30 cards to be with very high cost – however, we are not able to use them in the first several turns. If the opponent do have small cards, we may be attacked to death before we could ever use any card. We aimed to simulate the possibilities of playing a card in the first 5 turns.
+                            <br>
+                            <br>
+                            <li class = "objective"><b>Are there any “core” combination of cards?</b></li>
+                            <br>
+                            We aimed to estimate the correlation between cards in certain decks of a specific hero and hope to create card combinations based on principal component analyses. In deciding the number of core cards, we also want to explore the number of drawing cards we need, in order to be able to get the core cards in the random drawing during the game.
+                            <br>
+                            <br>
+                            <li class = "objective"><b>Are we able to build a powerful deck (30 cards) for some heros?</b></li>
+                            <br>
+                            With all our analysis in previous stages, we aimed to build potentially powerful decks for certain heros.
+                            <br>
+                            <br>
+                            <div align="center"><img src = "img/flowchart.png" height="650"></div>
+                            <br>
+                            <br>
+                            <li class = "objective"><b>Test the deck we built!</b></li>
+                            <br>
+                            We can test our model by simulating games (or playing real games) using the deck and strategy we developed, and calculate its percentage of winning.
+                            <br>
+                            <br>
+                        </div>
+                    </ol>
+                </h6>
+            </div>
         </div>
     </div>
 </section>
 <section id="terminology">
         <div class="section-head">
             <div class = "container">
-                <h2 id="title-2" align="left">Terminology of HearthStone</h2>
-                <br>
+                <div class="animatedParent">
+                    <h2 id="title-2" align="left" class="animated fadeInLeft">Terminology of HearthStone</h2>
+                    <br>
+                </div>
+
                 <h6>
                     <ul>
                         <li><b>Heros:</b> There are 9 heros in Hearthstone, which are shown below.</li>
@@ -179,8 +192,10 @@
 <section id="analysis">
     <div class="section-head">
         <div class = "container">
-            <h2 align="left">Data</h2>
-            <br>
+            <div class="animatedParent">
+                <h2 align="left" class="animated fadeInRight">Data</h2>
+                <br>
+            </div>
             <h3 align="left">Basic Card information</h3>
             <h6>We collected card data from Hearthstone’s API: <a href="http://hearthstoneapi.com">http://hearthstoneapi.com</a>, Card. It contains thorough card information of: card name, card set (Basic, Classic, Blackrock Mountain, Goblins vs Gnomes, Naxxramas, Promotion, The Grand Tournament, The League of Explorers), card type (minions, spells, weapons), player class (Priest, Hunter, Warlock, Shaman, Warrior, Mage, Paladin, Druid, Rogue, All), card description (text), mechanics of minions (Battlecry, Taunt, Normal, HealTarget, Charge, Aura, AdjacentBuff, Spell Damage, Freeze, Enrage, Divine Shield, Stealth, Overload, Deathrattle, Windfury, Combo, Poisonous, Inspire), attack, health, and cost of cards. We have collected the json file using Python and transfer it into RData (and csv files) using R.
             </h6>
@@ -190,7 +205,7 @@
             </h6>
         </div>
         <div class = "container">
-            <h2 align="left">Exploratory Analysis</h2>
+            <h3 align="left">Exploratory Analysis</h3>
             <br>
             <h6> First, we want to see how costs of cards distributed across the card databases. A great portion of cards are 2 to 4 cost, which is a right skewed distribution. From the above plots, we have found similar patterns in attack and health as in the cost distribution. These similar patterns give us a hint of using linear model to predict cost by attack and health.</h6>
         <div class = "container-fluid">
@@ -224,8 +239,11 @@
 <section id="results">
     <div class="section-head">
         <div class = "container">
-            <h2 align="left">Analysis</h2>
-            <br>
+            <div class="animatedParent">
+                <h2 align="left" class="animated fadeInLeft">Analysis</h2>
+                <br>
+            </div>
+
             <h3 align="left">Card Value Analysis</h3>
             <h6>All the analysis on card values were only done on minions (cards that have attack and health). Recalling our plots from in <b>Exploratory Analysis</b>, as well as plotting another histogram for the sum of health and attack (attplusheal), we can found similar distributions between the cost and the sum of attach and health, where the distributions are right-skewed.</h6>
             <br>
@@ -390,7 +408,7 @@
                     <li><b>Assumption 3:</b> We focus on the first 5 turns, since the card costs are mostly less than 6 (76.3% of cards).</li>
                 </ul> </h6>
             <h6>First, create decks with all reasonable combinations of small cards (cost 1-5) and others. </h6>
-            <h6>Next, use similation to estimate the probability to use card in the first 1/2/3/4/5-turn for each deck. Estimations are made for offensive player, as the defensive player has higher possiblity to use cards (4 cards at the begining with a special 0 cost card that temporatily increases the mana by 1) for the first few turns.</h6>
+            <h6>Next, use simulation to estimate the probability to use card in the first 1/2/3/4/5-turn for each deck. Estimations are made for offensive player, as the defensive player has higher possibility to use cards (4 cards at the begining with a special 0 cost card that temporatily increases the mana by 1) for the first few turns.</h6>
             <h6>Finally, we decide the minimum number of low cost cards, depending on each play tempo. We decide this by making different thresholds of the probability of using cards by the second/third/fourth turn.</h6>
             <table class="table table-bordered table-hover table-condensed">
                 <thead><tr id = "tempo"><td>Tempo</td>
@@ -432,7 +450,7 @@
             <h4 align="left">Explore Card Interactions within Warlock Decks</h4>
             <h6>We have looked at the correlation between the cards within warlock decks. We calculated the correlations between each cards.</h6>
             <br>
-            <div align="center"><img src = "img/deck_cluster1.png" height="400"></div>
+            <div align="center"><img src = "img/deck_cluster1.png" height="600"></div>
             <br>
             <div align="center"><img src = "img/deck_cluster2.png" height="400"></div>
             <br>
@@ -694,7 +712,10 @@
 <section id="video">
     <div class="section-head">
         <div class = "container">
-            <h2 align="left">Video</h2>
+            <div class="animatedParent">
+                <h2 align="left" class="animated fadeInRight">Video</h2>
+            </div>
+
             <iframe width="800" height="500" src="https://www.youtube.com/embed/ISpJ_VvB8PQ" frameborder="0" allowfullscreen></iframe>
             <br>
         </div>
@@ -703,14 +724,11 @@
 
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/queue.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
 <script src="js/scrolling-nav.js"></script>
-<script src="js/d3.min.js"></script>
-<script src="js/d3.tip.js"></script>
 <script src="js/css3-animate-it.js"></script>
 <script src="js/main.js"></script>
 </body>
