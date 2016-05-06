@@ -253,15 +253,15 @@
             </div>
 
             <h3 align="left">Card Value Analysis</h3>
-            <h6>All the analysis on card values were only done on minions (cards that have attack and health). Recalling our plots from in <b>Exploratory Analysis</b>, as well as plotting another histogram for the sum of health and attack (attplusheal), we can found similar distributions between the cost and the sum of attach and health, where the distributions are right-skewed.</h6>
+            <h6>All the analysis on card values were only done on minions (cards that have attack and health). Recalling our plots from in <b>Exploratory Analysis</b>, as well as plotting another histogram for the sum of health and attack (attack+health), we can found similar distributions between the cost and the sum of attach and health, where the distributions are right-skewed.</h6>
             <br>
-            <div align="center"><img src = "img/card_value1.png" height="400"></div>
+            <div align="center"><img src = "img/card_value1.png" height="400" width="800"></div>
             <br>
             <h6>Since cards with extreme values (costs greater than 10 and zero cost cards) are generally different with cards between 1 to 10, we exclude those cards in our analysis. Also, in Hearthstone, the cost of cards is usually categorized into 0 ~ 6 and 7+. We therefore wrangled the card costs into these 8 categories: </h6>
             <br>
-            <div align="center"><img src = "img/card_value2.png" height="400"></div>
+            <div align="center"><img src = "img/card_value2.png" height="400" width="900"></div>
             <br>
-            <h6>We can see from the above graphs that higher attplusheal value (attack+health) is associated with higher mean cost. Here, the left graph shows the relationship between the sum of health and attack (attplusheal) and the cost; the right graph shows the relationship between the sum of health and attack (attplusheal) and the cost categories (0 - 7+).</h6>
+            <h6>We can see from the above graphs that higher value of <b>attack+health</b> is associated with higher mean cost. Here, the left graph shows the relationship between the sum of health and attack (attack+health) and the cost; the right graph shows the relationship between the sum of health and attack (attack+health) and the cost categories (0 - 7+).</h6>
 
             <h6>Since the outcome variable (Y) in our analysis is the costs of cards, which are normally integer from 0 to 7+ (all values greater than 7 are considered in the group of 7+), we adopted a model that consider ordinal polytomous outcome – cumulative logits model. Since the features’ effects (attack, cost, special abilities, etc.) should be the similar in cards with different costs, we also assumed proportional odds of these features across different cost groups. And we ended up with 7 outcome groups (cost value: 1 to 7+), we excluded cards that cost 0 mana since 1) they are usually cards that do not cost players to play and 2) the nature of these 0 cost cards are quite different from normal minion cards. In general, the cumulative logits model is in format shown below, where X is the covariate matrix, and ββ is the coefficient matrix:</h6>
             <br>
@@ -390,7 +390,7 @@
             <br>
             <h6>Using this cumulative logits model, we are able to estimate the probability of a card being classified in each cost group (p1 to p7), and then by conditioning on the features of a card, we are able to assign a value of that card with the maximum probability among p1 to p7 (the most likely cost of a card based on its features).</h6>
             <h6>Since one of our assumption that the cost of a card is proportional to the damage it can lead to, we considered several models: <b>1)</b> a univariate model which includes attack as the only covariate,
-                <b>2)</b> a univariate model which includes attplusheal as the only covariate,
+                <b>2)</b> a univariate model which includes attack+health as the only covariate,
                 <b>3)</b> a model includes attack and health as two covariates,
                 <b>4)</b> a model as <b>3)</b> with additional consideration of mechanics.</h6>
             <h6>In model <b>4)</b>, since Hearthstone cards have descriptions on them and they are sometimes not quantifiable,
@@ -464,18 +464,18 @@
             <br>
             <h6>From the principle components analysis, we can see the top 2 principle components have explained 2/3 of the variance between cards and the top 9 can explain 91% of the variance. So here, we are going to use the first 9 principle components to do the following analysis to keep the scale of problem acceptable and avoid overfitting.</h6>
             <br>
-            <div align="center"><img src = "img/deck_cluster3.png" height="400"></div>
+            <div align="center"><img src = "img/deck_cluster3.png" height="500"></div>
             <br>
             <br>
-            <div align="center"><img src = "img/deck_cluster4.png" height="400"></div>
+            <div align="center"><img src = "img/deck_cluster4.png" height="500"></div>
             <br>
             <br>
-            <div align="center"><img src = "img/deck_cluster5.png" height="400"></div>
+            <div align="center"><img src = "img/deck_cluster5.png" height="500"></div>
             <br>
             <h4 align="left">Clustering of cards</h4>
             <h6>In the above, we have tried to use Kmeans clustering to distinguish different type of decks. By the FOM plots, we found that 4 is the balanced point, so we made a 4 centroid clustering. We randomly pick one deck to see if the clusters make sense. We can see in the following table that most of the cards fall into the same clusters.</h6>
             <br>
-            <div align="center"><img src = "img/deck_cluster6.htm" height="600"></div>
+            <div align="center"><img src = "img/deck_cluster6.png" height="600"></div>
             <br>
             <h6>Also, we made the following correlation heatmap to see the correlations inside the clusters.</h6>
             <br>
