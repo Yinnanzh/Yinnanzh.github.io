@@ -192,12 +192,22 @@ h2#teammates{
     font-size: 18px;
 }
 
+
+table{
+    text-align: center;
+}
+
 .table-hover > tbody > tr:hover {
     background-color: #23bbe6;
 }
 
 b {
     color: #FFA500;
+}
+
+
+#validation-cards-div input{
+    height:240px;
 }
 
 
