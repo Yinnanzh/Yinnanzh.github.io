@@ -9,27 +9,41 @@ FF8C00
     src: url(../fonts/krunch_bold.ttf) format("truetype");
 }
 
-
+h1,h2,h3,h4,h5,title{
+    font-family: "AtlasGroteskWeb","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:white;
+}
 h1,h2,h3,h4{
     font-family: 'Roboto', sans-serif;
 }
 
+h2{
+    color:#23bbe6;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h3{
+    color:#f4fe00;
+    font-weight: bold;
+}
+h4{
+    color:#FF8C00;
+    font-weight: bold;
+}
 
 body{
     background-color: black;
 }
 tbody, thead{
-    color:dimgray;
+    color:white;
     font-family: Arial;
     font-size:20px;
 }
 #colname, #colname1{
     color:whitesmoke;
 }
-h1,h2,h3,h4,h5,title{
-    font-family: "AtlasGroteskWeb","Helvetica Neue",Helvetica,Arial,sans-serif;
-    color:white;
-}
+
 h6{
     font-family: Arial;
     font-size: 20px;
@@ -171,4 +185,13 @@ div .web-title h1{
 .intro-text {
     font-size: 18px;
 }
+
+.table-hover > tbody > tr:hover {
+    background-color: #23bbe6;
+}
+
+b {
+    color: #f4fe00;
+}
+
 

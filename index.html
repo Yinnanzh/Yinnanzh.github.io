@@ -9,11 +9,8 @@
     <link href="css/bootstrap-slider.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:900,300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    <link href='http://www.fontspace.com/nimavisual/moonhouse?text=' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="css/animations.css">
     <link href="css/style.css" rel="stylesheet">
 
 
@@ -30,9 +27,6 @@
         <div class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
                 <li>
-                    <a class="page-scroll" href="#video">Video</a>
-                </li>
-                <li>
                     <a class="page-scroll" href="#story" id="story-btn">Overview</a>
                 </li>
                 <li>
@@ -46,6 +40,9 @@
                 </li>
                 <li>
                     <a class="page-scroll" href="#results">Analysis</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#video">Video</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="https://github.com/Yinnanzh/HearthScience">Github</a>
@@ -66,19 +63,11 @@
     </div>
 </section>
 
-<section id="video">
-    <div class="section-head">
-        <div class = "container">
-            <h2 align="left">Video</h2>
-            <iframe width="800" height="500" src="https://www.youtube.com/embed/ISpJ_VvB8PQ" frameborder="0" allowfullscreen></iframe>
-            <br>
-        </div>
-    </div>
-</section>
+
 <section id="story">
     <div class="section-head">
         <div class = "container">
-            <h2 id="title-1" align="left">Overview and Motivation</h2>
+            <h2 id="title-1" align="left" class="animated bounceIn">Overview and Motivation</h2>
             <br>
             <h6>Some of our team members are loyal fans of the popular free online card game, <b>Hearthstone: Heroes of Warcraft</b>, which was released worldwide by Blizzard on 2014 with more than 40 million registered Hearthstone accounts by November 2015. The main element of the game Hearthstone are cards, which consist of a list of features including cost, attack (number of damages can be made to the opponent per turn),health (number of damages that can bear before being destroyed) and other special abilities.
             </h6>
@@ -192,11 +181,11 @@
         <div class = "container">
             <h2 align="left">Data</h2>
             <br>
-            <h4 align="left">Basic Card information</h4>
+            <h3 align="left">Basic Card information</h3>
             <h6>We collected card data from Hearthstone’s API: <a href="http://hearthstoneapi.com">http://hearthstoneapi.com</a>, Card. It contains thorough card information of: card name, card set (Basic, Classic, Blackrock Mountain, Goblins vs Gnomes, Naxxramas, Promotion, The Grand Tournament, The League of Explorers), card type (minions, spells, weapons), player class (Priest, Hunter, Warlock, Shaman, Warrior, Mage, Paladin, Druid, Rogue, All), card description (text), mechanics of minions (Battlecry, Taunt, Normal, HealTarget, Charge, Aura, AdjacentBuff, Spell Damage, Freeze, Enrage, Divine Shield, Stealth, Overload, Deathrattle, Windfury, Combo, Poisonous, Inspire), attack, health, and cost of cards. We have collected the json file using Python and transfer it into RData (and csv files) using R.
             </h6>
             <br>
-            <h4 align="left">Frequently used decks from top players</h4>
+            <h3 align="left">Frequently used decks from top players</h3>
             <h6> Instead of looking at the card information alone, we are trying to consider how one card interacts with others. We are using the built-up decks from top players of Hearthstone from the following website: <a href="http://www.hearthstonetopdecks.com/">http://www.hearthstonetopdecks.com</a>.
             </h6>
         </div>
@@ -206,20 +195,20 @@
             <h6> First, we want to see how costs of cards distributed across the card databases. A great portion of cards are 2 to 4 cost, which is a right skewed distribution. From the above plots, we have found similar patterns in attack and health as in the cost distribution. These similar patterns give us a hint of using linear model to predict cost by attack and health.</h6>
         <div class = "container-fluid">
             <br>
-            <div class="row">
-                <div class = col-md-4"><img src = "img/cost_dist.png" height="270"></div>
-                <div class = col-md-4"><img src = "img/attack_dist.png" height="270"></div>
-                <div class = col-md-4"><img src = "img/health_dist.png" height="270"></div>
+            <div class="row" align="center">
+                <img src = "img/cost_dist.png" width="340">
+                <img src = "img/attack_dist.png" width="340">
+                <img src = "img/health_dist.png" width="340">
             </div>
             <br>
         </div>
             <h6> In the whole card dataset, there are some confounders such as mechanism, rarity and card set, that might affect our assumption of linear relationship between cost, attack and health. Take mechanism as an example, we ploted the cost, attack and health distributions of under different mechanisms. We found the pattern of these three dimensions are similar across all these mechanisms. For all these three confounders, we found all the distributions have similar patterns.</h6>
             <div class = "container-fluid">
                 <br>
-                <div class="row">
-                    <div class = col-md-4"><img src = "img/mechanic1.png" height="270"></div>
-                    <div class = col-md-4"><img src = "img/mechanic2.png" height="270"></div>
-                    <div class = col-md-4"><img src = "img/mechanic3.png" height="270"></div>
+                <div class="row" align="center">
+                    <img src = "img/mechanic1.png" width="340">
+                    <img src = "img/mechanic2.png" width="340">
+                    <img src = "img/mechanic3.png" width="340">
                 </div>
             </div>
             <h6> Also, we can take a look at the distribution of cards in different cardsets.</h6>
@@ -237,7 +226,7 @@
         <div class = "container">
             <h2 align="left">Analysis</h2>
             <br>
-            <h4 align="left">Card Value Analysis</h4>
+            <h3 align="left">Card Value Analysis</h3>
             <h6>All the analysis on card values were only done on minions (cards that have attack and health). Recalling our plots from in <b>Exploratory Analysis</b>, as well as plotting another histogram for the sum of health and attack (attplusheal), we can found similar distributions between the cost and the sum of attach and health, where the distributions are right-skewed.</h6>
             <br>
             <div align="center"><img src = "img/card_value1.png" height="400"></div>
@@ -391,7 +380,7 @@
                 From the above plot, we can see that after adjusting for the claimed features (health, attack, charge, overload) of cards, some of the cards were overvalued (resid = estimated cost - assigned < 0) and some of them were undervalued (resid > 0). Cards that are Battlecry (cards that launch certain descriptive effects when cards are played), Normal (cards that do not have any special effects), and Deathrattle (cards that launch certain descriptive effects when cards are dead) are more frequently over- or under-valued.
             </h6>
             <br>
-            <h4 align="left">Simulation</h4>
+            <h3 align="left">Simulation</h3>
             <h6>According to our previous model and our exprience with HearthStone, the higher the cost of a card, the more powerful it is. However, the higher the cost of a card, the less likely we can play in the first few rounds (due to limited mana in hand). Especially when we decide to play fast tempo, we want to be able to attack the opponent before he collects his good cards or core cards.
                 Therefore, we intended to reach a balance on choosing low/high cost cards.</h6>
             <h6>To simulate this, we made the following assumptions:
@@ -403,20 +392,44 @@
             <h6>First, create decks with all reasonable combinations of small cards (cost 1-5) and others. </h6>
             <h6>Next, use similation to estimate the probability to use card in the first 1/2/3/4/5-turn for each deck. Estimations are made for offensive player, as the defensive player has higher possiblity to use cards (4 cards at the begining with a special 0 cost card that temporatily increases the mana by 1) for the first few turns.</h6>
             <h6>Finally, we decide the minimum number of low cost cards, depending on each play tempo. We decide this by making different thresholds of the probability of using cards by the second/third/fourth turn.</h6>
+            <table class="table table-bordered table-hover table-condensed">
+                <thead><tr id = "tempo"><td>Tempo</td>
+                    <td># <2 mana</td>
+                    <td># <3 mana</td>
+                    <td># <4 mana</td>
+                </tr></thead>
+                <tbody>
+                <tr><td>Fast</td>
+                    <td>7</td>
+                    <td>-</td>
+                    <td>9</td>
+                </tr>
+                <tr><td>Mid-range</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+                <tr><td>Slow</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>7</td>
+                </tr>
+                </tbody>
+            </table>
             <h6>The simulation results shows the number of low-cost cards required in all situations of different play mode (slow, mid and fast-tempo).</h6>
             <h6>In fast-tempo play mode, we need at least 7 cards with cost no more than 2, at least 9 cards with cost no more than 4.</h6>
             <h6>In mid-tempo play mode, we need at least 5 cards with cost no more than 5, at least 6 cards with cost no more than 3, and at least 7 cards with cost no more than 4.</h6>
             <h6>In slow-tempo play mode, we need at least 2 cards with cost no more than 2, at least 5 cards with cost no more than 3, and at least 7 cards with cost no more than 4.</h6>
             <br>
-            <h4 align="left">Deck Analysis</h4>
-            <h5 align="left">Look into the deck-specific features</h5>
+            <h3 align="left">Deck Analysis</h3>
+            <h4 align="left">Look into the deck-specific features</h4>
             <h6>From our empirical knowledge, we know that each deck has its own strategy to win the game, depending on the hero mode and the play tempo (fast/slow). The strategies include aggro, control, midrange, face, etc. These strategies are highly related to the average cost of all the minions inside the deck.</h6>
             <br>
             <div align="center"><img src = "img/deck_dist.png" height="650"></div>
             <br>
             <h6>From the histogram we can see warlock is quite different from other heros, the distribution of the costs of decks has double peaks, while others are more likely following a normal distribution. This finding suggests that the warlock card may be ideal to look at as it is likely to have both slow-tempo and fast-tempo mode to play, and may have distinctive features and combinations for certain cards.</h6>
             <br>
-            <h5 align="left">Explore Card Interactions within Warlock Decks</h5>
+            <h4 align="left">Explore Card Interactions within Warlock Decks</h4>
             <h6>We have looked at the correlation between the cards within warlock decks. We calculated the correlations between each cards.</h6>
             <br>
             <div align="center"><img src = "img/deck_cluster1.png" height="400"></div>
@@ -433,7 +446,7 @@
             <br>
             <div align="center"><img src = "img/deck_cluster5.png" height="400"></div>
             <br>
-            <h5 align="left">Clustering of cards</h5>
+            <h4 align="left">Clustering of cards</h4>
             <h6>In the above, we have tried to use Kmeans clustering to distinguish different type of decks. By the FOM plots, we found that 4 is the balanced point, so we made a 4 centroid clustering. We randomly pick one deck to see if the clusters make sense. We can see in the following table that most of the cards fall into the same clusters.</h6>
             <br>
             <div align="center"><img src = "img/deck_cluster6.htm" height="600"></div>
@@ -455,7 +468,7 @@
             <h6>From the above plots, we can see that the cards in cluster 1 and 3 appear more frequently in decks. This helps us to select the core cards of a deck. A core card should neither appear too much, which makes it look like panacea; nor appear too little, which means it has fewer interaction with other cards.</h6>
             <h6>Now, in each cluster, we have several numbers of core cards. 6 and 7 core cards may be too much and we are worried that we may not be able to get all the core cards and to use them. So we decide to do a simulation to figure out how the numbers of core cards will affect the probability of getting all the core cards after each turn.</h6>
             <br>
-            <h5 align="left">Number of Core cards</h5>
+            <h4 align="left">Number of Core cards</h4>
             <h6>For each deck, there are several “core” cards that can have the greatest effect when they are used together. We will usually put 2 cards for each component of core cards, Once we get at least one of every component in a set of core cards, we are very likely to win – but we need to survive to that time. Thus we hope to get at least one for every component as early as possible.</h6>
             <h6>First we list all possible decks with core cards and all other cards (normal cards). Each set of core cards includes 2-5 different components. We consider the offensive side/early hand first.</h6>
             <h6>Similarly we can estimate the probability for the defensive side/late hand.</h6>
@@ -493,8 +506,8 @@
             <br>
             <h6>In this deck we built, we have 8 cards with cost 1, 6 cards with cost 2, 3 cards with cost 3, 2 cards with cost 4. It satisfy our simulation of fast-tempo play mode in which we need at least 7 cards with cost no more than 2, at least 9 cards with cost no more than 4. Thus we are supposed to be able to play the cards randomly drawn from the deck with high probabilities (at least 90% probability in the first 2 turns, 95% probability in the first 3 turns, and 99% probability in the first 4 turns).</h6>
             <br>
-            <h4 align="left">Validation</h4>
-            <h5 align="left">Card Value Model Validation: Blizard’s adjustment of card values</h5>
+            <h3 align="left">Validation</h3>
+            <h4 align="left">Card Value Model Validation: Blizard’s adjustment of card values</h4>
             <h6>Blzzard has recently (four days ago) released an expansion package, which includes a series of new cards. However, the inforamtion of these cards have not been released by Blizard’s API. Fortunately, they also adjusted 12 existing cards (7 of them are minions), which allowed us to validate our model.</h6>
             <br>
             <div class="row">
@@ -511,8 +524,8 @@
                 Our model predicted 3 out of these 7 cards correctly, in which they are underestimate (they are more powerful than the values they were assigned). After Blizard’s adjustment, these cards become weakened. However, we also made wrong prediction on three cards: Ironbeak Owl, Keeper of Grove and Ancient of Lore. The first two cards have special ability with silence effect, which is not adjusted into our model since there are only three cards with this ability. The Ancient of Lore is also misvalued by our model, this is because it has the ability of Choice, and Choice is also a uncommon ability so it has too few cards for our model to predict. Also, in our model, we consider all the cards with more than 7 costs as 7 cost (be consistent with the categories in HearthStone game). So for Molten Giant, it has a special mechanism of changing costs according to the hero’s health, which makes it have a changeable cost. This is not suitable for our model (we can only estimate minions with a fixed cost).
             </h6>
             <br>
-            <h5 align="left">Real-time evaluation of zooDeck:
-            </h5>
+            <h4 align="left">Real-time evaluation of zooDeck:
+            </h4>
             <h6>After we built this deck, we tried to fight against AI first. The results are showed below. Generally speaking, our established deck performed pretty well in players vs. computer games.</h6>
             <br>
             <table class="table table-bordered table-hover table-condensed">
@@ -678,6 +691,15 @@
         <br>
     </div>
 </section>
+<section id="video">
+    <div class="section-head">
+        <div class = "container">
+            <h2 align="left">Video</h2>
+            <iframe width="800" height="500" src="https://www.youtube.com/embed/ISpJ_VvB8PQ" frameborder="0" allowfullscreen></iframe>
+            <br>
+        </div>
+    </div>
+</section>
 
 
 
@@ -689,6 +711,7 @@
 <script src="js/scrolling-nav.js"></script>
 <script src="js/d3.min.js"></script>
 <script src="js/d3.tip.js"></script>
+<script src="js/css3-animate-it.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
