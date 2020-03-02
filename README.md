@@ -1,4 +1,4 @@
-# Yinnanzh.github.io
+# Yinnanzh.github.io/hearthscience.github.io
 
 Data Science 2016 final project web page
 Topic: Hearth Science
